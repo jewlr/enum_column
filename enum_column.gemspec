@@ -28,12 +28,5 @@ Gem::Specification.new do |spec|
   end
   spec.require_paths = ["lib"]
 
-  spec.test_files = [
-    "test/test_helper.rb",
-    "test/db/schema.rb",
-    "test/fixtures/enumeration.rb",
-    "test/fixtures/enum_controller.rb",
-    "test/enum_controller_test.rb",
-    "test/enum_mysql_test.rb"
-  ]
+  spec.add_dependency 'activerecord', '>= 4.2', '< 6'
 end

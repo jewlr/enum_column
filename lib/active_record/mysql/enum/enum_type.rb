@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 if defined? ActiveRecord::Type::Value
   module ActiveRecord
     module Type

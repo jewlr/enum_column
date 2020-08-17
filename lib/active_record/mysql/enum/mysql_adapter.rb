@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 adapter_class = if defined? ActiveRecord::ConnectionAdapters::MySQLJdbcConnection
   ActiveRecord::ConnectionAdapters::MySQLJdbcConnection
 # elsif defined? ActiveRecord::ConnectionAdapters::AbstractMysqlAdapter
@@ -25,18 +27,34 @@ module ActiveRecord
         # be done on a per adapter basis, but is generalized here.
         #
         # will generate enum('a', 'b', 'c') for :limit => [:a, :b, :c]
-        def type_to_sql(type, limit: nil, precision: nil, scale: nil, unsigned: nil, **) # :nodoc:
-          if type.to_s == 'enum'
-            native = native_database_types[type]
-            column_type_sql = (native || {})[:name] || 'enum'
+        if Rails::VERSION::MAJOR < 5
+          def type_to_sql(type, limit = nil, precision = nil, scale = nil, unsigned = nil, **_options) # :nodoc:
+            if type.to_s == 'enum'
+              native = native_database_types[type]
+              column_type_sql = (native || {})[:name] || 'enum'
 
-            column_type_sql << "(#{limit.map { |v| quote(v) }.join(',')})"
+              column_type_sql << "(#{limit.map { |v| quote(v) }.join(',')})"
 
-            column_type_sql
-          else
-            super(type, limit: limit, precision: precision, scale: scale, unsigned: unsigned)
+              column_type_sql
+            else
+              super(type, limit, precision, scale, unsigned)
+            end
+          end
+        else
+          def type_to_sql(type, limit: nil, precision: nil, scale: nil, unsigned: nil, **_options) # :nodoc:
+            if type.to_s == 'enum'
+              native = native_database_types[type]
+              column_type_sql = (native || {})[:name] || 'enum'
+
+              column_type_sql << "(#{limit.map { |v| quote(v) }.join(',')})"
+
+              column_type_sql
+            else
+              super(type, limit: limit, precision: precision, scale: scale, unsigned: unsigned)
+            end
           end
         end
+
 
         private
 

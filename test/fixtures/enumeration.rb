@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 class Enumeration < ActiveRecord::Base
   validates_columns :color, :severity, :string_field, :int_field

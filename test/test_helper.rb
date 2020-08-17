@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # =============================================================================
 # Include the files required to test Engines.
 
