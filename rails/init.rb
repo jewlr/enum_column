@@ -1,1 +1,1 @@
-require 'enum_column'
+require 'active_record/mysql/enum'

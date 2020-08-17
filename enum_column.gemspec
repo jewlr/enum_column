@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   spec.metadata    = {
-    "source_code_uri"   => "https://github.com/Invoca/process_settings",
+    "source_code_uri"   => "https://github.com/Invoca/activerecord-mysql-enum",
     'allowed_push_host' => "https://rubygems.org"
   }
 
