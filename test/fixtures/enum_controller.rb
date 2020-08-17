@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EnumController < ActionController::Base
   layout false
 
