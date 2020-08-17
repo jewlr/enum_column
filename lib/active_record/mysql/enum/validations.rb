@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 module ActiveRecord
   module Validations
@@ -13,18 +14,18 @@ module ActiveRecord
           column_names.each do |name|
             col = cols[name.to_s]
             raise ArgumentError, "Cannot find column #{name}" unless col
-            
+
             # test for nullability
             validates_presence_of(name) if !col.null
-            
+
             # Test various known types.
             case col.type
             when :enum
               validates_inclusion_of name, :in => col.limit, :allow_nil => true
-              
+
             when :integer, :float
               validates_numericality_of name, :allow_nil => true
-              
+
             when :string
               if col.limit
                 validates_length_of name, :maximum => col.limit, :allow_nil => true

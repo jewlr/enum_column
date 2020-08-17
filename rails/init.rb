@@ -1,1 +1,3 @@
-require 'enum_column'
+# frozen_string_literal: true
+
+require 'active_record/mysql/enum'
