@@ -2,7 +2,9 @@
 
 This gem is an extension to ActiveRecord which enables native support of
 enumerations in the database schema using the ENUM type in MySQL. Forked
-and revitalized from the early work that Nick Pohodnya did with [enum_column3](https://github.com/jewlr/enum_column).
+and revitalized from [enum_column3](https://github.com/jewlr/enum_column)
+which was itself a fork of a fork of Nick Pohodnya's original gem for
+Rails 3, [enum_column3](https://github.com/electronick/enum_column).
 
 ## Support
 Currently this has been manually tested with Rails version 4 and 5, and works with scaffolding.
