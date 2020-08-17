@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-lib = File.expand_path("../lib", __FILE__)
+lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "active_record/mysql/enum/version"
 
@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["development@invoca.com"]
 
   spec.summary     = "Enable enum type for the MySQL Adapter in ActiveRecord"
-  spec.description = "Enable enum type for the MySQL Adapter in ActiveRecord"
+  spec.description = spec.summary
   spec.homepage    = "http://github.com/Invoca/activerecord-mysql-enum"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
