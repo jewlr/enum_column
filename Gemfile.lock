@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     activerecord-mysql-enum (0.1.0)
-      activerecord (>= 4.2, < 6)
+      activerecord (>= 4.2, < 7)
 
 GEM
   remote: https://rubygems.org/
