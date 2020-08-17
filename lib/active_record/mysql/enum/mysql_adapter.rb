@@ -39,11 +39,12 @@ module ActiveRecord
         end
 
         private
+
         def initialize_type_map(m = type_map)
           super
 
-          m.register_type(%r(enum)i) do |sql_type|
-            limit = sql_type.sub(/^enum\('(.+)'\)/i, '\1').split("','").map { |v| v.intern }
+          m.register_type(/enum/i) do |sql_type|
+            limit = sql_type.sub(/^enum\('(.+)'\)/i, '\1').split("','").map { |v| v.to_sym }
             ActiveRecord::Type::Enum.new(limit: limit)
           end
         end
