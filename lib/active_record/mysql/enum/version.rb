@@ -3,7 +3,7 @@
 module ActiveRecord
   module Mysql
     module Enum
-      VERSION = "0.1.1.pre.1"
+      VERSION = "0.1.1"
     end
   end
 end
